@@ -1,5 +1,3 @@
-print("TEST")
-
 def main():
   print("Hello World")
 
