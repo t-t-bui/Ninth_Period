@@ -11,6 +11,15 @@ FPS = 60
 FRAMEPERSEC = pygame.time.Clock()
 displaysurface = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+# placeholder for character class
+class Character(pygame.sprite.Sprite):
+  # initialize character 
+  def __init__(self):
+    super().__init__()
+    self.image = pygame.image.load("images/Dino_Sprite/png/Character_Run.png")
+    self.rect = self.image.get_rect()
+    self.rect.center = (10,650)
+
 # background class
 class background():
   #initialize background image
@@ -53,8 +62,14 @@ class background():
 
 def main():
   pygame.init()
+  
   back_ground = background()
+  dyno = Character()
+  
   pygame.display.set_caption("DYNO GAME")
+
+  all_sprites = pygame.sprite.Group()
+  all_sprites.add(dyno)
 
   # game loop
   while True:
@@ -63,6 +78,9 @@ def main():
       if event.type == pygame.QUIT:
         pygame.quit()
         sys.exit()
+
+    for sprite in all_sprites:
+      displaysurface.blit(sprite.image, sprite.rect)
           
     back_ground.update()
     back_ground.render()
