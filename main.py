@@ -16,4 +16,4 @@ class Player(pygame.sprite.Sprite):
       self.rect.y += 7.5 #enables sprite to fall back down/not stay in the air 
     
   def draw (self, surface): #draws the sprite on the display
-    surface.blit(self.image, self.rect)
+    surface.blit(self.image, self.rect) 
